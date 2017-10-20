@@ -10,21 +10,21 @@ import java.util.*;
  */
 
 public class Permuntations {
-    private static TreeSet<String> words = new TreeSet<>(); // only unique
+    private TreeSet<String> words = new TreeSet<>(); // only unique
 
-    public static void main(String[] args) {
-        permuntation("", "кслно");// 1*2*3*4 =24 /with repeating for four letters/
-        Iterator<String> output = words.iterator();
-        while (output.hasNext()) {
-            System.out.println(output.next());
+    public Permuntations(String word) {
+        permuntation("", word);
 
-        }
     }
 
-    private static void permuntation(String start, String end) {
+    public TreeSet<String> getWords() {
+        return words;
+    }
+    
+    private void permuntation(String start, String end) {
 
         if (end.length() < 1) {
-            words.add(start+end);
+            words.add(start + end);
         } else {
 
             for (int i = 0; i < end.length(); i++) {
